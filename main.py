@@ -6,9 +6,14 @@ import pandas as pd
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+import os
 
-data=pd.read_csv('Cleaned_data.csv')  # Load your dataset here
-pipe = pickle.load(open('RidgeModel.pkl', 'rb'))  # Load your trained model here
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+data = pd.read_csv(os.path.join(BASE_DIR, 'Cleaned_data.csv'))
+pipe = pickle.load(open(os.path.join(BASE_DIR, 'RidgeModel.pkl'), 'rb'))
+
+# data=pd.read_csv('Cleaned_data.csv')  # Load your dataset here
+# pipe = pickle.load(open('RidgeModel.pkl', 'rb'))  # Load your trained model here
 
 # pipe = pickle.load(open('RidgeModel.pkl', 'rb'))  # Load your trained model here
 @app.route('/')
