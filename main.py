@@ -46,7 +46,7 @@ def predict():
 
 if __name__ == '__main__':
     # app.run(debug=True, port=5001)
-    app.run()
+    app.run(debug=False)
     # Set debug=True for development, change to False in production
     # Change port as needed, default is 5000
 # To run the application, use the command: python main.py
